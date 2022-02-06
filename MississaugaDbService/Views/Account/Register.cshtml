@@ -1,0 +1,49 @@
+﻿
+@model MississaugaDbService.RegisterViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+     ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2> 
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    UserName : <input type="text" asp-for="UserName" /> <br />
+    Email : <input type="email" asp-for="Email" /> <br />
+    Password : <input type="password" asp-for="Password" /> <br />
+    Confirm Password : <input type="password" asp-for="ConfirmPassword"  /> <br />
+    <input type="submit" value="Register" />
+</form>
+
+@*<div class="row">
+    <div class="col-md-12">
+        <form action = "Register" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName">UserName: </label>
+                <input asp-for="UserName" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email Address: </label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Password: </label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConfirmPassword">Confirm Password: </label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn-primary">Register</button>
+        </form>
+
+    </div>
+</div>*@

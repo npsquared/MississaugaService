@@ -10,7 +10,7 @@ namespace MississaugaDbService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class BreedController : ControllerBase
+    public class BreedController : Controller
     {
         private readonly ILogger<BreedController> _logger;
         private readonly PetLicensingContext _context;

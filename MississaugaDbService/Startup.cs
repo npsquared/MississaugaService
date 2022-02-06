@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
 
 namespace MississaugaDbService
 {
@@ -29,9 +30,14 @@ namespace MississaugaDbService
             services.AddControllers().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
+            services.AddControllersWithViews(); // Added to get the views working
 
             services.AddDbContext<PetLicensingContext, PetLicensingContext>(); // When you're applying a context to a controller
                                                                                // you must add that instance in the Startup.cs, since the execution starts here. 
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<PetLicensingContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +48,7 @@ namespace MississaugaDbService
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 
